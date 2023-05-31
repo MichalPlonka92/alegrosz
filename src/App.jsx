@@ -1,6 +1,8 @@
-import {useEffect, useState} from "react";
-import Grid from "@mui/material/Unstable_Grid2";
-import {TextField,} from "@mui/material";
+import React, {useEffect, useState} from "react";
+import Grid from "@mui/material/Grid";
+import ProductSearch from "./components/ProductSearch.jsx";
+import ProductList from "./components/ProductList.jsx";
+
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -22,25 +24,9 @@ function App() {
                     <h1>Alegrosz</h1>
                 </Grid>
                 <Grid xs={12}>
-                    <TextField
-                        id="standard-basic"
-                        label="Search Products"
-                        variant="standard"
-                        value={search}
-                        onChange={(event) => setSearch(event.target.value)}
-                    />
+                    <ProductSearch search={search} setSearch={setSearch}/>
                 </Grid>
-
-                {products
-                    .filter((product) =>
-                        `${product.name} ${product.description}`
-                            .toLowerCase()
-                            .includes(search.toLowerCase())
-                    )
-                    .map((product) => (
-                        <productCard key={product.id} product={product}/>
-
-                    ))}
+                <ProductList search={search} products={products}/>
             </Grid>
         </>
     );
