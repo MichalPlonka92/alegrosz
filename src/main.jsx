@@ -1,18 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {RouterProvider} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 
-import {router} from "./helpers/router.jsx"
-import {DevSupport} from "@react-buddy/ide-toolbox";
-import {ComponentPreviews, useInitial} from "./dev/index.js";
+import { router } from "./helpers/router.jsx";
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <DevSupport ComponentPreviews={ComponentPreviews}
-                    useInitialHook={useInitial}
-        >
-            <RouterProvider router={router}/>
-        </DevSupport>
-    </React.StrictMode>,
-)
+        <RouterProvider router={router} />
+    </React.StrictMode>
+);

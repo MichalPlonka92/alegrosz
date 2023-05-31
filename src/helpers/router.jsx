@@ -1,13 +1,14 @@
-import App from './App.jsx'
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
+import App from "../App.jsx";
+import ProductDetails from "../components/ProductDetails.jsx";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
     {
         path: "/",
-        element: <App/>,
+        element: <App />,
     },
     {
-        path: "/product-details",
-        element: <h1>Product Details</h1>,
-    }
+        path: "/product-details/:productId",
+        element: <ProductDetails />,
+    },
 ]);
