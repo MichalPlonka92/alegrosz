@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard.jsx";
 import PropTypes from "prop-types";
 
-function ProductList({products, search}) {
+function ProductList({ products, search }) {
     return (
         <>
             {products
