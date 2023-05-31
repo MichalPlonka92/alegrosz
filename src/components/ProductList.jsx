@@ -1,3 +1,6 @@
+import ProductCard from "./ProductCard.jsx";
+import PropTypes from "prop-types";
+
 function ProductList({products, search}) {
     return (
         <>
@@ -8,8 +11,11 @@ function ProductList({products, search}) {
                         .includes(search.toLowerCase())
                 )
                 .map((product) => (
-                    <productCard key={product.id} product={product}/>
-
+                    <ProductCard
+                        magic={42}
+                        key={product.id}
+                        product={product}
+                    />
                 ))}
         </>
     );
@@ -18,7 +24,6 @@ function ProductList({products, search}) {
 ProductList.propTypes = {
     products: PropTypes.array.isRequired,
     search: PropTypes.string.isRequired,
-
-}
+};
 
 export default ProductList;

@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from "react";
-import Grid from "@mui/material/Grid";
+import {useEffect, useState} from "react";
+import Grid from "@mui/material/Unstable_Grid2";
 import ProductSearch from "./components/ProductSearch.jsx";
 import ProductList from "./components/ProductList.jsx";
-
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -26,7 +25,7 @@ function App() {
                 <Grid xs={12}>
                     <ProductSearch search={search} setSearch={setSearch}/>
                 </Grid>
-                <ProductList search={search} products={products}/>
+                <ProductList products={products} search={search}/>
             </Grid>
         </>
     );
