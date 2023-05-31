@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import ProductSearch from "./components/ProductSearch.jsx";
 import ProductList from "./components/ProductList.jsx";
@@ -23,9 +23,9 @@ function App() {
                     <h1>Alegrosz</h1>
                 </Grid>
                 <Grid xs={12}>
-                    <ProductSearch search={search} setSearch={setSearch} />
+                    <ProductSearch search={search} setSearch={setSearch}/>
                 </Grid>
-                <ProductList products={products} search={search} />
+                <ProductList products={products} search={search}/>
             </Grid>
         </>
     );

@@ -1,22 +1,15 @@
-import {
-    Button,
-    Card,
-    CardContent,
-    CardMedia,
-    Typography,
-} from "@mui/material";
-import { faker } from "@faker-js/faker";
+import {Button, Card, CardContent, CardMedia, Typography,} from "@mui/material";
+import {faker} from "@faker-js/faker";
 import CardActions from "@mui/material/CardActions";
 import Grid from "@mui/material/Unstable_Grid2";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
-function ProductCard({ product }) {
+function ProductCard({product}) {
     return (
         <Grid key={product.id}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{maxWidth: 345}}>
                 <CardMedia
-                    sx={{ height: 140 }}
+                    sx={{height: 140}}
                     image={faker.image.urlLoremFlickr({
                         category: "technics",
                     })}
@@ -31,9 +24,7 @@ function ProductCard({ product }) {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/product-details/${product.id}`}>
-                        <Button size="small">See details</Button>
-                    </Link>
+                    <Button size="small">See details</Button>
                 </CardActions>
             </Card>
         </Grid>

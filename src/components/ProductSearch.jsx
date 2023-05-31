@@ -1,21 +1,29 @@
-import { TextField } from "@mui/material";
+import ProductCard from "./ProductCard.jsx";
 import PropTypes from "prop-types";
 
-function ProductSearch({ search, setSearch }) {
+function ProductList({products, search}) {
     return (
-        <TextField
-            id="standard-basic"
-            label="Search Products"
-            variant="standard"
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-        />
+        <>
+            {products
+                .filter((product) =>
+                    `${product.name} ${product.description}`
+                        .toLowerCase()
+                        .includes(search.toLowerCase())
+                )
+                .map((product) => (
+                    <ProductCard
+                        magic={42}
+                        key={product.id}
+                        product={product}
+                    />
+                ))}
+        </>
     );
 }
 
-ProductSearch.propTypes = {
+ProductList.propTypes = {
+    products: PropTypes.array.isRequired,
     search: PropTypes.string.isRequired,
-    setSearch: PropTypes.func.isRequired,
 };
 
-export default ProductSearch;
+export default ProductList;
