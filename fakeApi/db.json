@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "name": "Smartfon Samsung Galaxy S21",
-      "description": "Nowoczesny smartfon z najlepszymi funkcjami i wydajnością",
-      "id": 2,
-      "price": 2599.99,
-      "quantity": 10
-    },
-    {
       "name": "Laptop Dell XPS 15",
       "description": "Wyjątkowo wydajny laptop z ekranem 15 cali i najnowszym procesorem",
       "id": 3,
