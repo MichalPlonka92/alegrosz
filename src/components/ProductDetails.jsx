@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import Grid from "@mui/material/Grid";
 import {
     Button,
@@ -12,12 +12,13 @@ import {
 import CardActions from "@mui/material/CardActions";
 import { faker } from "@faker-js/faker";
 import Container from "@mui/material/Container";
+import {CartContext} from "../context/CartContext.jsx";
 
 function ProductDetails() {
     const [product, setProduct] = useState({});
     const { productId } = useParams();
     const navigate = useNavigate();
-
+useContext(CartContext);
     useEffect(() => {
         getProduct(productId).then((product) => setProduct(product));
     }, []);
@@ -38,6 +39,24 @@ function ProductDetails() {
         navigate("/");
     }
 
+    async function updateStock(id, pieces) {
+    const response = await fetch(`http://localhost:3000/products/${id}`,{
+        method: "PATH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            quantity,
+        }),
+    });
+    return response.json();
+    }
+
+    async function buyProduct(){
+        setCart((prev) => prev + product.price)
+        setProduct({...product, quantity: product.quantity - 1});
+        await updateStock(productId, product.quantity -1);
+    }
     return (
         <>
             <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
@@ -100,6 +119,13 @@ function ProductDetails() {
                                     variant="outlined"
                                 >
                                     Delete
+                                </Button>
+                                <Button
+                                    onClick={buyProduct}
+                                    size="small"
+                                    variant="outlined"
+                                >
+                                    Buy
                                 </Button>
                             </CardActions>
                         </Card>

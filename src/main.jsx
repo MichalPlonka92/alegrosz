@@ -8,6 +8,8 @@ import { router } from "./helpers/router.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <CssBaseline />
-        <RouterProvider router={router} />
+        <CartProvider>
+              <RouterProvider router={router} />
+        </CartProvider>
     </React.StrictMode>
 );

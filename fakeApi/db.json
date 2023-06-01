@@ -1,11 +1,18 @@
 {
   "products": [
     {
-      "name": "Laptop Dell XPS 15",
+      "name": "Smartfon Samsung Galaxy S22",
+      "description": "Nowoczesny smartfon z najlepszymi funkcjami i wydajnością",
+      "id": 2,
+      "price": 2603.31,
+      "quantity": 1
+    },
+    {
+      "name": "Laptop Dell XPS 18",
       "description": "Wyjątkowo wydajny laptop z ekranem 15 cali i najnowszym procesorem",
       "id": 3,
-      "price": 3999.99,
-      "quantity": 3
+      "price": 3999,
+      "quantity": "11"
     },
     {
       "name": "Słuchawki bezprzewodowe Sony WH-1000XM4",
