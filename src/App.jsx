@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import ProductSearch from "./components/ProductSearch.jsx";
 import ProductList from "./components/ProductList.jsx";
-import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
 import Container from "@mui/material/Container";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
 
     return (
         <>
-            <ResponsiveAppBar />
             <Container maxWidth="xl">
                 <Grid container spacing={2}>
                     <Grid item xs={12}>

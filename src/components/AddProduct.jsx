@@ -2,10 +2,13 @@ import { Formik } from "formik";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { Button, TextField, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function AddProduct() {
+    const navigate = useNavigate();
+
     async function addProductAPI(data) {
-        const response = await fetch("http://localhost:3000/api/products", {
+        const response = await fetch("http://localhost:3000/products", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -14,10 +17,12 @@ function AddProduct() {
         });
 
         return await response.json();
-
     }
-    function handleSubmit(values, {setSubmitting}) {
 
+    async function handleSubmit(values, { setSubmitting }) {
+        const product = await addProductAPI(values);
+        setSubmitting(false);
+        navigate(`/product-details/${product.id}`);
     }
 
     return (
@@ -39,7 +44,7 @@ function AddProduct() {
                         validate={() => {
                             return {};
                         }}
-
+                        onSubmit={handleSubmit}
                     >
                         {({
                               values,
